@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Для моей Лулу 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="petals" id="petals"></div>
+
+  <main class="app">
+
+    <!-- H-->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <span class="hero-tag">с 26 сентября 2025</span>
+      <h1 class="hero-title">Для моей<br><em>Яны</em></h1>
+      <p class="hero-sub">Ты важна. Ты нужна. Ты любима.</p>
+    </section>
+
+    <!-- ФОТКИ -->
+    <section class="photos-section">
+      <div class="photo-trio">
+
+        <div class="photo-card solo" id="frame-yana" onclick="document.getElementById('inp-yana').click()">
+          <div class="photo-inner">
+            <div class="photo-empty">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              <span>Яна</span>
+            </div>
+          </div>
+          <div class="photo-label">Яна 🌸</div>
+        </div>
+        <input type="file" id="inp-yana" accept="image/*" onchange="loadPhoto('frame-yana','photo-yana',this)">
+
+        <div class="photo-card duo" id="frame-together" onclick="document.getElementById('inp-together').click()">
+          <div class="photo-inner">
+            <div class="photo-empty">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>Мы вместе</span>
+            </div>
+          </div>
+          <div class="photo-label">Мы 🤍</div>
+        </div>
+        <input type="file" id="inp-together" accept="image/*" onchange="loadPhoto('frame-together','photo-together',this)">
+
+
+
+      </div>
+    </section>
+
+    <!-- КОЛВО ДНЕЙ СТАТИСТИКА -->
+    <section class="stats-section">
+      <div class="stat-card">
+        <span class="stat-num" id="stat-days">0</span>
+        <span class="stat-label">дней вместе</span>
+      </div>
+      <div class="stat-card accent">
+        <span class="stat-num" id="stat-weeks">0</span>
+        <span class="stat-label">недель любви</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" id="stat-months">0</span>
+        <span class="stat-label">месяцев</span>
+      </div>
+    </section>
+
+
+
+    <!-- ПИСТМА -->
+    <section class="letter-section">
+      <button class="letter-open-btn" id="letter-btn" onclick="toggleLetter()">
+        <div class="letter-btn-icon">💌</div>
+        <div class="letter-btn-text">
+          <span class="letter-btn-title">Письмо дня</span>
+          <span class="letter-btn-sub" id="letter-btn-sub">Нажми, чтобы открыть</span>
+        </div>
+        <svg class="letter-chevron" id="letter-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <div class="letter-card" id="letter-card">
+        <div class="letter-meta">
+          <span id="letter-date-label"></span>
+          <span id="letter-num-label"></span>
+        </div>
+        <blockquote class="letter-body" id="letter-body"></blockquote>
+        <div class="letter-sign">— моя Лулу 🌸</div>
+      </div>
+    </section>
+
+    <!-- ГАЛЛЕРИЯ -->
+    <section class="gallery-section card">
+      <div class="card-header">
+        <h2>Наши моменты</h2>
+        <button class="icon-btn" onclick="document.getElementById('inp-gallery').click()" title="Добавить фото">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+      <input type="file" id="inp-gallery" accept="image/*" multiple onchange="addToGallery(this)">
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <!-- СЕРДЦЕ -->
+    <section class="heart-section">
+      <button class="heart-btn" onclick="sendHeart()">💓</button>
+      <p class="heart-hint">Нажми — пошли сердечко</p>
+    </section>
+
+  </main>
+
+  <!-- LB -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()">×</button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+  </div>
+
+  <!-- T -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
